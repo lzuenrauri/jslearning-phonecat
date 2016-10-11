@@ -7,9 +7,8 @@
     <script src="./js/controller.js"></script>
   </head>
 	<body ng-controller="PhoneListCtrl">
-
-    <p>Nothing here {{'yet' + '!'}}</p>
-    <p>1 + 2 = {{ 1 + 2 }}</p>
+    <p>{{welcome}}</p>
+    <p>We have total {{phones.length}} of phones</p>
 
   <ul>
     <li ng-repeat="phone in phones">
