@@ -1,20 +1,23 @@
 <!doctype html>
-<html lang="en" ng-app ng-controller = "PhoneListCtrl">
+<html lang="en" ng-app='myApp' ng-controller = 'PhoneListCtrl'>
   <head>
     <meta charset="utf-8">
     <title ng-bind-template="Google Phone Gallery: {{query}}">Phone</title>
-    <script src="./js/1.0.1-angular.js"></script>
+    <script src="./js/angular.min.js"></script>
     <script src="./js/controller.js"></script>
   </head>
 	<body>
-    <p>{{welcome}}</p>
+    <p> {{welcome}} </p>
     <p>We have total {{phones.length}} of phones</p>
     <div>
       Search: <input ng-model = "query">
-    </div>
-
-  <ul>
-    <li ng-repeat = "phone in phones | filter:query">
+      Sort by: <select ng-model="orderProp">
+        <option value='name'>Alphabetical</option>
+        <option value='age'>Newest</option>
+      </select>
+    </div><br/>
+  <ul class = "phone">
+    <li ng-repeat = "phone in phones | filter:query | orderBy:orderProp">
       {{phone.name}}
     <p>{{phone.snippet}}</p>
     </li>
